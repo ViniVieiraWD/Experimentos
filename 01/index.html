@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adiciona e remove</title>
+
+    <style>
+        li {
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let nLista = 0
+        let ul = document.createElement("ul")
+    function criarLista() {
+        nLista++
+        let titulo = document.createElement("h2")
+        let input = document.createElement("input")
+        input.type = "button"
+        input.value = "Criar"
+        input.className = "cElement"
+        input.onclick = newelemento
+
+        titulo.innerText = `Lista ${nLista}`
+
+        
+        ul.appendChild(input)
+        document.getElementsByTagName("body")[0].appendChild(titulo)
+        document.getElementsByTagName("body")[0].appendChild(ul)
+
+    }
+
+    // Criar Elementos da Lista
+
+    function newelemento() {
+        let il = document.createElement("li")
+        let etexto = document.createElement("input")
+        let remo = document.createElement("input")
+        remo.type = "button"
+        remo.value = "Remover"
+        remo.onclick = function(){
+        il.removeChild(etexto)
+        il.removeChild(remo)
+        ul.removeChild(il)
+        }
+
+        etexto.type = "text"
+        etexto.value = "texto"
+        il.appendChild(etexto)
+        il.appendChild(remo)
+        document.getElementsByTagName("body")[0].appendChild(il)
+    }
+    
+
+    </script>
+    <h1>Criador de listas</h1>
+    <input type="button" value="Criar Lista" onclick="criarLista()">
+</body>
+</html>
